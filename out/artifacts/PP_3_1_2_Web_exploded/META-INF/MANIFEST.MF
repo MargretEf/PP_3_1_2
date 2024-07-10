@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: 79118
+Build-Jdk: Oracle OpenJDK version 22
+Implementation-Title: PP_3_1_2
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: Kata_PP_3_1_2
+Main-Class: ${start-class}
+
