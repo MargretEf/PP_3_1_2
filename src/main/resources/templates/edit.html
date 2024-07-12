@@ -6,7 +6,7 @@
     <title>EditUser</title>
 </head>
 <body>
-<form th:action="@{/edit}" th:method="patch" th:object="${showUser}">
+<form th:action="@{/edit}" th:method="post" th:object="${showUser}">
 <input type="hidden" name="id" th:field="*{id}">
  <input type="text" name="name" th:field="*{name}">
     <br>

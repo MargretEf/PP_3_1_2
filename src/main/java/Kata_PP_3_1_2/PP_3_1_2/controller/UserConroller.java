@@ -13,31 +13,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class UserConroller {
 
-    private UserService userServiceImp;
+    private UserService userService;
     @Autowired
     public UserConroller(UserService userServiceImp) {
-        this.userServiceImp = userServiceImp;
+        this.userService = userServiceImp;
     }
 
     @GetMapping("/")
     public String showAllUsers(Model model) {
-    model.addAttribute("users", userServiceImp.getAllUsers());
+    model.addAttribute("users", userService.getAllUsers());
     return "users";
 }
     @GetMapping("/show")
     public String showEditUser(Model model, @RequestParam(value = "id") int id) {
-        model.addAttribute("showUser", userServiceImp.getUser(id));
+        model.addAttribute("showUser", userService.getUser(id));
         return "edit";
     }
     @PostMapping("/edit")
     public String showEditUser(@ModelAttribute("showUser") User user) {
-userServiceImp.updateUser(user);
+userService.updateUser(user);
 return "redirect:/";
     }
 
     @GetMapping("/remove")
   public String removeUserId (@RequestParam(value = "id") int id, Model model) {
-    userServiceImp.deleteUser(id);
+    userService.deleteUser(id);
     return "redirect:/";
     }
 
@@ -50,7 +50,7 @@ public String addUser(Model model) {
 }
 @PostMapping("/save")
 public String saveUser(@ModelAttribute("user") User user) {
-    userServiceImp.addNewUser(user);
+    userService.addNewUser(user);
     return "redirect:/";
 }
 
